@@ -41,6 +41,18 @@
             })
     }
 
+    function Attack(){
+        let name = $("#name").val();
+        let attack = parseInt($("#attack").val);
+        let defence = parseInt($("#defence").val);
+        let TestDataClass = ncmb.DataStore(db);
+        TestDataClass .greaterThan("attack", defence)
+        .fetchAll()
+        .then(function(results){
+            showResults(results);
+        })
+    }
+
     function searchLevelLT(){
         let level = parseInt($("#level").val());
         let TestDataClass = ncmb.DataStore(db);
@@ -93,6 +105,7 @@
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
+    <button class="btn" onclick="Attack()">Attack</button>
     <br>
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
     <button class="btn" onclick="searchLevel()">Level</button>
