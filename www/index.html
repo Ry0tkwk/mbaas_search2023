@@ -41,12 +41,10 @@
             })
     }
 
-    function Attack(){
-        let name = $("#name").val();
-        let attack = parseInt($("#attack").val);
-        let defence = parseInt($("#defence").val);
+    function monsterBattle(){
+        let battle = parseInt($("#attack").val());
         let TestDataClass = ncmb.DataStore(db);
-        TestDataClass .greaterThan("attack", defence)
+        TestDataClass .greaterThan("attack", battle)
         .fetchAll()
         .then(function(results){
             showResults(results);
@@ -102,10 +100,14 @@
     <label for="level">level:</label>
     <input id="level" type="number" placeholder="monster level">
   </div>
+  <div>
+      <label dfor="attack">attack:</label>
+      <input id="level" type="number" placeholder="monster attack">
+  </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
-    <button class="btn" onclick="Attack()">Attack</button>
+    <button class="btn" onclick="monsterBattle()">Battle</button>
     <br>
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
     <button class="btn" onclick="searchLevel()">Level</button>
