@@ -44,7 +44,7 @@
     function monsterBattle(){
         let battle = parseInt($("#attack").val());
         let TestDataClass = ncmb.DataStore(db);
-        TestDataClass .greaterThan("attack", battle)
+        TestDataClass .greaterThan("attack", battle).order("attack", false)
         .fetchAll()
         .then(function(results){
             showResults(results);
